@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build and Publish
+    name: Publish NuGet Packages
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@master
