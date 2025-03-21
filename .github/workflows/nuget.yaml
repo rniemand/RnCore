@@ -1,0 +1,52 @@
+name: NuGet
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build and Publish
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+
+      # RnCore.Abstractions
+      - name: "Build: RnCore.Abstractions"
+        run: dotnet build -c Release src/RnCore.Abstractions/RnCore.Abstractions.csproj
+      # RnCore.DbCommon
+      - name: "Build: RnCore.DbCommon"
+        run: dotnet build -c Release src/RnCore.DbCommon/RnCore.DbCommon.csproj
+      # RnCore.DbConfiguration
+      - name: "Build: RnCore.DbConfiguration"
+        run: dotnet build -c Release src/RnCore.DbConfiguration/RnCore.DbConfiguration.csproj
+      # RnCore.Logging
+      - name: "Build: RnCore.Logging"
+        run: dotnet build -c Release src/RnCore.Logging/RnCore.Logging.csproj
+      # RnCore.Logging.NlogTarget
+      - name: "Build: RnCore.Logging.NlogTarget"
+        run: dotnet build -c Release src/RnCore.Logging.NlogTarget/RnCore.Logging.NlogTarget.csproj
+      # RnCore.Mailer
+      - name: "Build: RnCore.Mailer"
+        run: dotnet build -c Release src/RnCore.Mailer/RnCore.Mailer.csproj
+      # RnCore.MediaInfoAbstractions
+      - name: "Build: RnCore.MediaInfoAbstractions"
+        run: dotnet build -c Release src/RnCore.MediaInfoAbstractions/RnCore.MediaInfoAbstractions.csproj
+      # RnCore.Metrics
+      - name: "Build: RnCore.Metrics"
+        run: dotnet build -c Release src/RnCore.Metrics/RnCore.Metrics.csproj
+      # RnCore.Metrics.InfluxDB
+      - name: "Build: RnCore.Metrics.InfluxDB"
+        run: dotnet build -c Release src/RnCore.Metrics.InfluxDB/RnCore.Metrics.InfluxDB.csproj
+      # RnCore.Sonarr
+      - name: "Build: RnCore.Sonarr"
+        run: dotnet build -c Release src/RnCore.Sonarr/RnCore.Sonarr.csproj
+      # RnCore.Ssh
+      - name: "Build: RnCore.Ssh"
+        run: dotnet build -c Release src/RnCore.Ssh/RnCore.Ssh.csproj
+        
+      # Blindly publish everything :/
+      - name: Publish
+        run: dotnet nuget push **/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json --skip-duplicate

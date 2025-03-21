@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>RnCore - Abstractions</Title>
+    <Version>9.0.100</Version>
+    <Description>Simple abstraction lib for my projects</Description>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>RnCore - MediaInfo Abstractions</Title>
+    <Version>9.0.100</Version>
+    <Description>Abstractions for MediaInfo</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediaInfo.Wrapper.Core" Version="21.9.3" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>RnCore - Sonarr</Title>
+    <Version>9.0.100</Version>
+    <Description>Simple Sonarr API wrapper</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RnCore.Logging" Version="9.0.101" />
+  </ItemGroup>
+
+</Project>
