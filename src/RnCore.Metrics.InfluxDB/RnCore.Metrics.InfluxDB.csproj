@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>RnCore - Metrics (InfluxDB)</Title>
-    <Version>9.0.100</Version>
-    <Description>InfluxDB output for my metrics client</Description>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>RnCore - Metrics (InfluxDB)</Title>
+		<Version>9.1.100</Version>
+		<Description>InfluxDB output for my metrics client</Description>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="InfluxDB.Client" Version="4.18.0" />
-    <PackageReference Include="RnCore.Metrics" Version="9.0.100" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="InfluxDB.Client" Version="4.18.0" />
+		<PackageReference Include="RnCore.Metrics" Version="9.0.100" />
+	</ItemGroup>
 
 </Project>

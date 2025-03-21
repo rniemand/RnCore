@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>RnCore - Ssh</Title>
-    <Version>9.0.100</Version>
-    <Description>Simple wrapper for SSH.NET</Description>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>RnCore - Ssh</Title>
+		<Version>9.1.100</Version>
+		<Description>Simple wrapper for SSH.NET</Description>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="RnCore.Logging" Version="9.0.101" />
-    <PackageReference Include="SSH.NET" Version="2024.2.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="RnCore.Logging" Version="9.0.101" />
+		<PackageReference Include="SSH.NET" Version="2024.2.0" />
+	</ItemGroup>
 
 </Project>

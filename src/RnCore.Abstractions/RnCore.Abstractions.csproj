@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>RnCore - Abstractions</Title>
-    <Version>9.0.100</Version>
+    <Version>9.1.100</Version>
     <Description>Simple abstraction lib for my projects</Description>
   </PropertyGroup>
 

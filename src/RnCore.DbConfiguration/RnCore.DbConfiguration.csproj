@@ -1,18 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>RnCore - DB Configuration</Title>
-    <Version>9.0.100</Version>
-    <Description>Simple DB Configuration provider</Description>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>RnCore - DB Configuration</Title>
+		<Version>9.1.100</Version>
+		<Description>Simple DB Configuration provider</Description>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="RnCore.DbCommon" Version="9.0.100" />
-    <PackageReference Include="RnCore.Logging" Version="9.0.101" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="RnCore.DbCommon" Version="9.0.100" />
+		<PackageReference Include="RnCore.Logging" Version="9.0.101" />
+	</ItemGroup>
 
 </Project>
