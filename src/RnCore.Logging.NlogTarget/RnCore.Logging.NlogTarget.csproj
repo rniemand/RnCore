@@ -12,7 +12,7 @@
 
 	<ItemGroup>
 		<PackageReference Include="NLog" Version="5.4.0" />
-		<PackageReference Include="RnCore.Logging" Version="9.0.101" />
+		<PackageReference Include="RnCore.Logging" Version="9.1.100" />
 	</ItemGroup>
 
 </Project>

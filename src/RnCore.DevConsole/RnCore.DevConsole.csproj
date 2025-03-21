@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RnCore.Abstractions\RnCore.Abstractions.csproj" />
+    <ProjectReference Include="..\RnCore.DbCommon\RnCore.DbCommon.csproj" />
+    <ProjectReference Include="..\RnCore.DbConfiguration\RnCore.DbConfiguration.csproj" />
+    <ProjectReference Include="..\RnCore.Logging.NlogTarget\RnCore.Logging.NlogTarget.csproj" />
+    <ProjectReference Include="..\RnCore.Logging\RnCore.Logging.csproj" />
+    <ProjectReference Include="..\RnCore.Mailer\RnCore.Mailer.csproj" />
+    <ProjectReference Include="..\RnCore.MediaInfoAbstractions\RnCore.MediaInfoAbstractions.csproj" />
+    <ProjectReference Include="..\RnCore.Metrics.InfluxDB\RnCore.Metrics.InfluxDB.csproj" />
+    <ProjectReference Include="..\RnCore.Metrics\RnCore.Metrics.csproj" />
+    <ProjectReference Include="..\RnCore.Sonarr\RnCore.Sonarr.csproj" />
+    <ProjectReference Include="..\RnCore.Ssh\RnCore.Ssh.csproj" />
+  </ItemGroup>
+
+</Project>

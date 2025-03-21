@@ -1,0 +1,72 @@
+name: SonarQube
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+# =====================================================
+# Ensure that these are set on GitHub
+# =====================================================
+# SONAR_PROJECT       : rn-core
+# SONAR_HOST_URL      : http://xxx:9002
+# SONAR_TOKEN         : sqp_...
+# =====================================================
+env:
+  PROJECT_NAME: "RnCore.DevConsole"
+jobs:
+  build:
+    name: Build and analyze
+    runs-on: windows-latest
+    steps:
+      # checkout the project
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Setup JDK
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+      # Cache SonarQube packages
+      - name: Cache SonarQube packages
+        uses: actions/cache@v4
+        with:
+          path: ~\.sonar\cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      # Cache SonarQube scanner
+      - name: Cache SonarQube scanner
+        id: cache-sonar-scanner
+        uses: actions/cache@v4
+        with:
+          path: .\.sonar\scanner
+          key: ${{ runner.os }}-sonar-scanner
+          restore-keys: ${{ runner.os }}-sonar-scanner
+      # Install SonarQube scanner
+      - name: Install SonarQube scanner
+        if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
+        shell: powershell
+        run: |
+          New-Item -Path .\.sonar\scanner -ItemType Directory
+          dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
+      # Build and analyze
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: powershell
+        run: |
+          $rootDir         = Join-Path $env:GITHUB_WORKSPACE "\";
+          $artifactsDir    = Join-Path $rootDir "artifacts\";
+          $sqReportPaths   = ($artifactsDir + "test-coverage/**/coverage.opencover.xml");
+          $projectName     = "${{ env.PROJECT_NAME }}";
+          $sonarQubeParams = @(
+            "/k:`"${{ secrets.SONAR_PROJECT }}`"",
+            "/d:sonar.host.url=`"${{ secrets.SONAR_HOST_URL }}`"",
+            "/d:sonar.login=`"${{ secrets.SONAR_TOKEN }}`"",
+            "/d:sonar.cs.opencover.reportsPaths=`"$sqReportPaths`""
+          );
+          Invoke-Expression (".\.sonar\scanner\dotnet-sonarscanner begin $sonarQubeParams");
+          Invoke-Expression (".\.github\ci-build.ps1 -project `"$projectName`"");
+          Invoke-Expression (".\.github\ci-test.ps1 -frameworkVersion `"net9.0`"");
+          Invoke-Expression (".\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login=`"${{ secrets.SONAR_TOKEN }}`"");
+          # Fin.
